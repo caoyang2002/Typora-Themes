@@ -1,0 +1,708 @@
+/* 普通字体 */
+@font-face {
+    font-family: '975 朦胧黑体';
+    font-style: normal;
+    font-weight: normal;
+    src: local('975 朦胧黑体'), local('975 朦胧黑体'), url('./thompsgo/975HazyGothicSC-Regular.ttf') format('ttf');
+   }
+
+/* 斜体 */
+@font-face {
+    font-family: '975 朦胧黑体';
+    font-style: italic;
+    font-weight: normal;
+    src: local('975 朦胧黑体'), local('975 朦胧黑体'), url('./thompsgo/975HazyGothicSC-Medium.ttf') format('ttf');
+    }
+
+/* 粗体 */
+@font-face {
+    font-family: '975 朦胧黑体';
+    font-style: normal;
+    font-weight: bold;
+    /* 定义行高 (似乎无效)*/
+    line-height: 1.6;
+    src: local('975 朦胧黑体'), local('975 朦胧黑体'), url('./themes/thompsgo/975HazyGothicSC-Bold.ttf') format('ttf');
+   }
+
+/* 斜粗体*/
+@font-face {
+    font-family: '975 朦胧黑体';
+    font-style: italic;
+    font-weight: bold;
+    src: local('975 朦胧黑体'), local('975 朦胧黑体'), url('./themes/thompsgo/975HazyGothicSC-Bold.ttf') format('ttf');
+    }
+
+/* 代码块字体 */
+@font-face {
+    font-family: 'Hack';
+    font-style: normal;
+    font-weight: bold;
+    src: local('Hack'), local('Hack'), rl('./thompsgo/Hack-Regular.ttf') format('ttf');
+   }
+
+/* 源代码字体 */
+@font-face {
+    font-family: 'Chill G Sans';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Chill G Sans'), local('Chill G Sans'), url('./thompsgo/Chill-G-Sans.otf') format('ttf');
+   }
+
+/* ----------------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+:root {
+    /* 全局基础设置 */
+    /* --side-bar-bg-color: #fafafa;  */
+    /* 侧边栏文字颜色 */
+    --control-text-color: #777;
+    
+    /* --text-color: #1f0909; */
+}
+
+
+/* -----------------------------------========================图片样式====================--------------------------------- */
+
+/* 设置文本输入区域的背景 */
+content {
+    /* 背景图片 */
+    background-image: url(./thompsgo/background_img.jpeg);
+
+    /* 图片尺寸：第一个值指定图片的宽度，第二个值指定图片的高度 */
+    background-size: 50% auto;
+    background-repeat: repeat;
+    /* color:rgba(red, green, blue, 0.0) */
+    
+}
+/* 纸张 */
+
+
+/* -----------------------------------========================文本编辑区样式====================--------------------------------- */
+#write {
+    /* 左边增加120像素 */
+    padding-left: 120px;
+    /*auto or 100% or 1000px*/
+    /* 最大宽度1800像素 */
+    max-width: 1800px;
+    /*auto or 100% or 1000px*/
+}
+
+/* #write .enable-diagrams{
+    color:rgba(red, green, blue, 0);
+    opacity:0.2;  
+} */
+
+
+
+
+/* 源代码模式的宽度 */
+#typora-source .CodeMirror-lines {
+    max-width: 95%;
+    /*auto or 100% or 1000px*/
+}
+
+/* 源代码字体 */
+#typora-source {
+    font-family: 'Chill G Sans';
+    font-size: inherit;
+}
+
+
+html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+
+/* 设置内容编辑区样式（背景、字体） */
+body {
+    /* 纸张透明 */
+    /* background-color: rgba(1,1,1,0); */
+
+    /* 更改内容编辑区的字体  系统字体可以直接输入， */
+    font-family: '975 朦胧黑体','Hack','Chill G Sans', Courier, sans-serif;
+    /* sans-serif是无衬线字体，是一种通用字体族。大多数计算机都有这种字体，如果特定的字体不存在将会调用此字体显示 */
+    /* color: rgb(51, 51, 51); */
+    line-height: 1.6;
+
+    /* 背景图片 (似乎没有作用)*/
+    /* background-image: url(./thompsgo/background_img.jpeg); */
+
+    /* 背景尺寸 */
+    background-size: 160%;
+    /* 背景重复 */
+    background-repeat: repeat;
+    /* 所有代码块、内联代码和源代码模式的字体 */
+    --monospace: 'Hack','975 朦胧黑体';
+    /* #md-fences {
+        code block only 
+      } */
+}
+
+/* 内容编辑区的最大宽度 */
+#write {
+    max-width: 1860px;
+    margin: 0 auto;
+    padding: 30px;
+    padding-bottom: 100px;
+}
+
+
+
+
+/* -----------------------------------========================图片样式====================--------------------------------- */
+img {
+    max-width: 1000px;
+    height: auto;
+    width: 100%;
+    margin: 40px auto!important;
+}
+/* 圆 */
+img[alt='circle'],[alt='圆'] {
+    border-radius: 50%;
+    box-shadow: 0px 10px 20px 1px rgba(0,0,0,.3);
+    border: 3px solid #e4e4e4;
+}
+
+/* 自适应缩放 */
+img[alt='zoom'],[alt='缩放'] {
+    zoom: 60%;
+}
+
+/* 阴影圆角 */
+img[alt='shadow'],[alt='阴影'] {
+    border-radius: 8px;
+    box-shadow: 0px 20px 40px 1px rgba(0,0,0,.3);
+    border: 1px solid #e4e4e4;
+}
+
+/* 阴影圆角和自适应缩放 */
+img[alt='zoom-shadow'], img[alt='shadow-zoom'],img[alt='圆角-阴影'],img[alt='阴影-圆角']{
+    zoom: 60%;
+    border-radius: 8px;
+    border: 1px solid #e4e4e4;
+    box-shadow: 0px 20px 40px 1px rgba(0,0,0,.3);
+}
+
+
+
+
+
+
+@media only screen and (min-width: 1400px) {
+    #write {
+        max-width: 1024px;
+    }
+}
+
+@media only screen and (min-width: 1800px) {
+    #write {
+        max-width: 1200px;
+    }
+}
+
+#write>ul:first-child,
+#write>ol:first-child {
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+    /* border-radius: 10px; */
+}
+
+
+/* 鼠标悬浮效果 */
+/* a {
+    background-color: powderblue;
+    transition: background-color 0.5s;
+  }
+  a:hover {
+    background-color: gold;
+    border-radius: 8px;
+} */
+
+
+
+
+/* h1 {
+    text-transform: uppercase;
+  } 大写*/
+/* h4 {
+  font-variant: small-caps;
+    }小写 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+    /* 中心对其 */
+    /* text-align:center; */
+}
+
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #686363;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+
+h4 {
+    font-size: 1.25em;
+}
+
+h5 {
+    font-size: 1em;
+}
+
+h6 {
+    font-size: 1em;
+    color: #777;
+}
+
+p,
+blockquote,
+ul,
+ol,
+dl,
+table {
+    margin: 0.8em 0;
+}
+
+/* 取消居中对齐 */
+/* 
+p .md-image:only-child{
+    width: auto;
+    text-align: inherit;
+}
+
+p > .md-image:only-child:not(.md-img-error) img {
+    display: inline-block;
+} */
+
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+
+ul,
+ol {
+    padding-left: 30px;
+}
+
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+
+/*
+list-style-type: disc;  实心圆
+list-style-type: circle;  空心圆
+list-style-type: square;  矩形
+list-style-type: decimal;  数字  1
+list-style-type: decimal-leading-zero;  有零的数字  01
+list-style-type: lower-alpha;  字母
+list-style-type: lower-greek; 阿尔法
+list-style-type: lower-latin; 小写字母
+list-style-type: lower-roman; 小写罗马数字
+list-style-type: upper-alpha; 大写字母
+list-style-type: upper-latin; 大写字母
+list-style-type: upper-roman; 大写罗马数字
+list-style-type: none;  无
+list-style-type: cjk-ideographic  一、
+list-style-type: "😎" 自定义内容
+*/
+
+/* 有序列表 */
+ ol {
+    list-style-type: decimal;
+}
+
+ol ol {
+    list-style-type: lower-alpha;
+}
+
+ol ol ol {
+    list-style-type: lower-roman;
+} 
+
+
+
+/* ol {
+    list-style-type: none;
+}
+
+li:before {
+    content: "(" counter(section, lower-alpha) ") ";
+}
+
+li {
+     counter-increment 属性设置某个选取器每次出现的计数器增量。默认增量是 1。 
+    counter-increment: section;
+} */
+
+
+
+
+
+
+
+
+
+
+/* todo清单 */
+/* 已完成 */
+.task-list-done {
+    text-decoration: line-through;
+    color: #9c9c9c;
+}
+/* 未完成 */
+.task-list-not-done {
+   
+}
+
+
+/* -----------------------------------========================侧边栏、菜单栏、专注模式的样式====================--------------------------------- */
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+
+blockquote blockquote {
+    padding-right: 0;
+}
+
+table {
+    padding: 0;
+    word-break: initial;
+}
+
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+/* 代码块中的代码行格式 */
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+/* 功能性代码(mermaid/latex) */
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0, 28, 36, .3);
+    border-top: 1px solid #eef2f2;
+}
+
+/* 代码块中的代码,以及下方的代码选择 */
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+/* 代码块中的代码 */
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+/* 代码选择 */
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+/* todo清单的复选框 */
+.md-task-list-item>input {
+    margin-left: -1.3em;
+}
+
+
+
+
+
+
+/* -----------------====================媒体样式===================------------------------- */
+@media print {
+    html {
+        font-size: 13px;
+    }
+
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+
+
+/* 代码区的编辑区域底部 */
+.md-fences {
+    background-color: #f8f8f8;
+}
+
+
+
+
+
+/* 元数据代码区 */
+#write pre.md-meta-block {
+    padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+    bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+/* 聚焦 */
+#write>h3.md-focus:before {
+    left: -1.5625rem;
+    top: .375rem;
+}
+
+#write>h4.md-focus:before {
+    left: -1.5625rem;
+    top: .285714286rem;
+}
+
+#write>h5.md-focus:before {
+    left: -1.5625rem;
+    top: .285714286rem;
+}
+
+#write>h6.md-focus:before {
+    left: -1.5625rem;
+    top: .285714286rem;
+}
+
+/* 图片md标签 */
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+/* 目录 */
+.md-toc {
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header,
+.context-menu,
+.megamenu-content,
+footer {
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+
+/* 左侧侧边栏鼠标悬浮时的显示状态 */
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state {
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient(180deg, hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0));
+}

@@ -1,0 +1,2042 @@
+/* 使用外部字体 */
+/* @include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext); */
+
+/*
+Typora关键词说明：
+font-face：字体初始化设置（导入及配置基本信息）
+:root：根信息
+content：内容区域
+#write：页面区域
+#typora-source：源码模式
+*/
+
+/*
+========================css说明=========================
+
+-----------------------margin--------------------------
+margin：外边距，最多有四个参数，依次是 上、右、下、左
+- margin-top，margin-right，margin-bottom，和 margin-left 四个外边距属性设置的简写。
+- 参数：像素px、rem相对HTML根元素字体大小、em相对当前对象内文本的字体尺寸、%百分比、
+
+应用于所有边 
+margin: 1em;
+margin: -3px;
+
+上边下边 | 左边右边 
+margin: 5% auto;
+
+上边 | 左边右边 | 下边 
+margin: 1em auto 2em;
+
+上边 | 右边 | 下边 | 左边 
+margin: 2px 1em 0 auto;
+
+全局值 
+margin: inherit;
+margin: initial;
+margin: unset;
+
+
+
+
+
+
+
+--------------------------------box-shadow------------------------------
+
+x 偏移量 | y 偏移量 | 阴影颜色 
+box-shadow: 60px -16px teal;
+
+x 偏移量 | y 偏移量 | 阴影模糊半径 | 阴影颜色 
+box-shadow: 10px 5px 5px black;
+
+x 偏移量 | y 偏移量 | 阴影模糊半径 | 阴影扩散半径 | 阴影颜色 
+box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+
+插页 (阴影向内) | x 偏移量 | y 偏移量 | 阴影颜色 
+box-shadow: inset 5em 1em gold;
+
+任意数量的阴影，以逗号分隔 
+box-shadow: 3px 3px red, -1em 0 0.4em olive;
+
+/* 全局关键字 
+box-shadow: inherit;
+box-shadow: initial;
+box-shadow: unset;
+
+
+-----------------------padding--------------------------
+padding：内边距。控制元素所有四条边的内边距区域
+参数和使用同margin 但是不能使用负数
+
+应用于所有边 
+padding: 1em;
+
+上边下边 | 左边右边 
+padding: 5% 10%;
+
+上边 | 左边右边 | 下边 
+padding: 1em 2em 2em;
+
+上边 | 右边 | 下边 | 左边 
+padding: 5px 1em 0 2em;
+
+全局值
+padding: inherit;
+padding: initial;
+padding: unset;
+
+
+
+
+-----------------------min-height-----------------------
+CSS 属性 min-height 能够设置元素的最小高度。这样能够防止 height 属性的应用值小于 min-height 的值
+当 min-height 大于 max-height 或 height 时，元素的高度会设置为 min-height 的值。
+<长度> 数值
+min-height: 3.5em;
+
+<百分比> 数值
+min-height: 10%;
+
+关键词
+min-height: max-content;
+min-height: min-content;
+min-height: fit-content(20em);
+
+全局数值
+min-height: inherit;
+min-height: initial;
+min-height: unset;
+
+-----------------------!important-----------------------
+增加样式的权重
+与优先级无关，但它与最终的结果直接相关，使用一个 !important 规则时，此声明将覆盖任何其他声明。
+
+
+
+------------------------webkit-font-smoothing-----------------------
+
+Webkit 实现了名为 -webkit-font-smoothing 的相似属性。该属性仅适用于 macOS。
+auto——由浏览器决定（如果可用，则使用亚像素抗锯齿；这是默认值）。
+none——关闭字体平滑；显示带有锯齿边缘的文本。
+antialiased——在像素（而不是亚像素）级别平滑字体。对于深色背景上的浅色文本，从亚像素渲染切换为抗锯齿渲染可以使其看起来更清晰。
+subpixel-antialiased——在大多数非视网膜显示器上，这将会提供最清晰的文本。
+
+
+------------------------渐变-----------------------
+CSS 渐变 <image> 类型的一种特殊类型 <gradient> 表示，由两种或多种颜色之间的渐进过渡组成。
+您可以选择三种类型的渐变：
+线性 (由 linear-gradient() (en-US) 函数创建)，
+径向 (由 radial-gradient() (en-US) 函数创建) 
+圆锥 (由 conic-gradient() (en-US) 函数创建)。
+您还可以使用 repeating-linear-gradient() (en-US) 和 repeating-radial-gradient() (en-US) 函数创建重复渐变。
+
+默认上至下
+.simple-linear {
+  background: linear-gradient(blue, pink);
+}
+改为左至右
+.horizontal-gradient {
+  background: linear-gradient(to right, blue, pink);
+}
+设置角度
+.angled-gradient {
+  background: linear-gradient(70deg, blue, pink);
+}
+多颜色
+.auto-spaced-linear-gradient {
+  background: linear-gradient(red, yellow, blue, orange);
+}
+颜色范围（渐变长度）
+.multicolor-linear {
+   background: linear-gradient(to left, lime 28px, red 77%, cyan);
+}
+实线分割
+.striped {
+   background: linear-gradient(to bottom left, cyan 50%, palegoldenrod 50%);
+}
+
+
+------------------------border-radius------------------------
+border-radius: 1-4 length|% / 1-4 length|%;
+注意: 每个半径的四个值的顺序是：左上角，右上角，右下角，左下角。如果省略左下角，右上角是相同的。如果省略右下角，左上角是相同的。如果省略右上角，左上角是相同的。
+
+椭圆边框
+border-radius: 15px 50px 30px 5px
+第一个值适用于左上角，第二个值适用于右上角，第三个值适用于右下角，第四个值适用于左下角
+
+椭圆边框
+border-radius: 15px 50px 30px
+第一个值适用于左上角，第二个值适用于右上角和左下角，第三个值适用于右下角：
+
+椭圆边框
+border-radius: 15px 50px
+第一个值适用于左上角和右下角，第二个值适用于右上角和左下角
+
+椭圆边框
+border-radius: 15px
+该值适用于所有四个角，均等圆角
+
+border-radius: 2em 1em 4em / 0.5em 3em;
+border-radius: 50% 20% / 10% 40%;
+
+border: dashed;
+border-width: 2px 4px;
+border-radius: 40px;
+
+
+
+------------------------@media------------------------
+@media 规则在媒体查询中用于为不同的媒体类型/设备应用不同的样式。
+媒体类型（Media type）描述设备的一般类别。除非使用 not 或 only 逻辑操作符，媒体类型是可选的，并且会（隐式地）应用 all 类型。
+all
+适用于所有设备。
+print
+适用于在打印预览模式下在屏幕上查看的分页材料和文档。（有关特定于这些格式的格式问题的信息，请参阅分页媒体。）
+screen
+主要用于屏幕。
+
+如果浏览器窗口的宽度为 600px 或更小时，把 <body> 元素的背景颜色更改为“浅蓝色”：
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+}
+
+
+------------------------鼠标形状------------------------
+大家在访问网页时是不是发现鼠标形状有时候是箭头形状、有时候又是手势形状、或者Ⅰ字形，这些效果都是通过css中的cursor属性设置的各式各样的鼠标指针样式。cursor属性可以在任何选择器中使用，来改变各种页面元素的鼠标指针效果。
+
+default：默认光标，箭头形；
+pointer：超链接光标，手指形；
+wait：指示程序正忙，通常是一只表或沙漏；
+help：指示可用的帮助，通常是一个问号或一个气球；
+text：指示文本；
+crosshair：鼠标呈现十字状；
+
+*/
+
+/* 颜色配置 方便后面直接调用 */
+:root {
+    /* dy color */
+    --select-text-bg-color: #d6d8b6;
+    /* 文本选中背景色 */
+    /*--primary-color: red;/*
+    /*--bg-color: #262626; /* 整体背景色 */
+    /*--sidebarbg-color: #1a1a1a; /* 侧边栏背景色 */
+    --focus-color: #ff5d52;
+    /* 点击某些元素（如标题）显示的颜色 */
+    --titlebefore-color: #00c4b6;
+    /* 各级标题点缀颜色 */
+
+    /* ------------------------------------------------------------------------------代码块 */
+    --codeblockbg-color: rgb(251, 246, 235);
+    /* 代码块背景色 */
+    --codeblockbg-color-mini: rgba(245, 241, 232, 1);
+    /* 代码块背景色,小窗模式 */
+    --codeblockfont-color: #a9a9a9;
+    /* 代码块默认字体颜色 */
+    --codeblockline-color: #e1efb7;
+    /* 代码块选中行颜色（鼠标悬浮、选中） */
+    --codeblocknum-color: rgba(128, 128, 255, 0.8);
+    /* 代码块行编号颜色 */
+
+
+    /* -----------------------------------------------------------------------------引用块 */
+    --blockquoteicon-color: #a0a0a0;
+    /* blockquote提示图标色 */
+    --blockquotebg-color: #eaeaea;
+    /* blockquote背景色 */
+    --blockquotedangericon-color: #ea3c39;
+    /* 危险型blockquote提示图标色 */
+    --blockquotedangerbg-color: #f5848e;
+    /* 危险型blockquote背景色 */
+    --blockquotesuccessicon-color: #5cb85c;
+    /* 成功型blockquote提示图标色 */
+    --blockquotesuccessbg-color: #e2ffd9;
+    /* 成功型blockquote背景色 */
+    --blockquotewarnicon-color: #faa226;
+    /* 警告型blockquote提示图标色 */
+    --blockquotewarnbg-color: #e9d197;
+    /* 警告型blockquote背景色 */
+    --blockquotequestionicon-color: #f7ff0c;
+    /* 问题型blockquote提示图标色 */
+    --blockquotequestionbg-color: #f8fba9;
+    /* 问题型blockquote背景色 */
+
+
+    /* -----------------------------------------------------------------------------列表 */
+    --ulol-color: #8b8b8b;
+    /* 有序无序列表前缀颜色 */
+    --olfore-color: white;
+    /* 有序列表字体颜色 */
+
+    /* -----------------------------------------------------------------------------表格 */
+    --tableevenrow-color: #1a1a1a;
+    /* 表格偶数行颜色 */
+    --tablefocusrow-color: #263238;
+    /* 表格鼠标悬停行颜色 */
+    --tableborder-color: #2f642e;
+    /* 表格边框色 */
+    --tablethbg-color: #2f845e;
+    /* 表格表头背景色 */
+
+    /* -----------------------------------------------------------------------------滚动条 */
+    --scrollbar-color: #2f845e;
+    /* 滚动条颜色 */
+
+    /* -----------------------------------------------------------------------------目录 */
+    --toc-color: #00a0a0;
+    /* 目录颜色 */
+
+    /* -----------------------------------------------------------------------------超链接 */
+    --atext-color: #a9a9a9;
+    /* 超链接文本颜色 */
+    --ahover-color: black;
+    /* 超链接悬停文本颜色 */
+    --abottom-color: #81d8cf;
+    /* 超链接下划线颜色 */
+
+    /* -----------------------------------------------------------------------------行内代码 */
+    --code-color: #2e1c05;
+    /* 行内代码字体色 */
+    --codebg-color: #feffec;
+    /* 行内代码背景色 */
+
+    /* -----------------------------------------------------------------------------脚注 */
+    --footnote-color: #e96900;
+    /* 脚注上标前景色 */
+    --footnotebg-color: #f8f8f8;
+    /* 脚注上标背景色 */
+
+    /* ----------------------------------------------------------------------------- 高亮文本 */
+    --highlight-color: rgb(71, 4, 4);
+    /* 高亮文本前景色 */
+    --highlightbg-color: rgb(255, 255, 0);
+    /* 高亮文本背景色 */
+
+    /* -----------------------------------------------------------------------------分割线 */
+    --split-color: #7e7e7e;
+    /* 分割线颜色 */
+
+
+
+    /* -----------------------------------------------------------------------------任务列表 */
+    --taskborder-color: rgb(235, 127, 127);
+    /* 任务列表边框色 */
+    --taskfocus-color: #7bd7d1;
+    /* 任务列表选中填充色 */
+    --taskftext-color: rgb(112, 112, 112);
+    /* 任务完成字体色*/
+
+    /* -----------------------------------------------------------------------------小标签 */
+    --spannote-color: #e91e64;
+    /* 小标签背景色 */
+    /* -----------------------------------------------------------------------------强调文本 */
+    --emptext-color: #fe5f58;
+    /* 几款强调型文本的颜色 */
+    --hidetextcover-color: #a1a1a1;
+    /* 隐藏文本遮罩颜色 */
+    --hidetext-color: #a9a9a9;
+    /* 隐藏文本颜色 */
+
+    --spanbtn-color: #44d7b6;
+    /* 文本按钮颜色 */
+    --detailstxt-color: black;
+    /* 折叠框summary文字颜色 */
+    --detailsbg-color: #fbffe7;
+    /* 折叠框summary背景色 */
+    --detailsborder-color: #5fa7e4;
+    /* 折叠框边框色 */
+
+    --body-color: #e6e6e6;
+    /* 文本颜色 */
+    --para-color: #a9a9a9;
+    /* 段落文本颜色 */
+    --commonstr-color: #a9a9a9;
+    /* 常规字符串颜色 */
+    --commonstrbg-color: #263238;
+    /* 常规字符串背景色 */
+    --timebodybg-color: #a0a0a0;
+    /* 时间轴主体部分背景色 */
+
+    /* -----------------------------------------------------------------------------侧边栏 */
+    --sidelist-selected-color: #263238;
+    /* 侧边栏条目选中背景色 */
+
+    /* -----------------------------------------------------------------------------YAML */
+    --yamlbg-color: #1a1a1a;
+    /* 头部YAML背景色 */
+    --yaml-color: #7f9bb7;
+    /* 头部YAML字体颜色 */
+
+    /* -----------------------------------------------------------------------------编辑区域 */
+    --page-color: rgba(225, 225, 225, 0);
+    /* 透明 */
+    --page-color-mini: #fffefc;
+    /* 小窗 编辑区域（纸张）颜色 */
+
+    /* dy font */
+    --body-font: 'Source Sans Pro', '等距更纱黑体 SC', 'Helvetica Neue', Arial, sans-serif;
+    /* 全局字体 */
+    --code-font: 'JetBrains Mono';
+    /* 代码块以及行内代码字体 */
+    /* bg image */
+    /* -----------------------------------------------------------------------------背景图片 */
+    --bgimg-url: url(./thompsgo/background_img.jpeg);
+    /* -----------------------------------------------------------------------------文本颜色 */
+    --text-color: #1f0909;
+    --control-text-color: #777;
+    /* --side-bar-bg-color: #fafafa;  */
+
+    /* --------------------------------------------------------------------------------标题下划线颜色 */
+    --border-bottom-h1: #160c01;
+    --border-bottom-h2: #251504;
+    --border-bottom-h3: #34220e;
+    --border-bottom-h4: #473420;
+    --border-bottom-h5: #5b4835;
+    --border-bottom-h6: #6d5c4b;
+    /* ----------------------------------------------------------------------------------标题文字颜色 */
+    --font-h1: #130701;
+    --font-h2: #190c01;
+    --font-h3: #1f1303;
+    --font-h4: #261305;
+    --font-h5: #2d1a08;
+    --font-h6: #34210a;
+
+    /* -------------------------------------------------------------------------------------KBD按键颜色 */
+    --kbdbg-color: #2f1d02;
+    /* 背景颜色 */
+    --kbd-color: #02081b;
+    /* 字体颜色 */
+    --kbd-shadow: #3928064e;
+    /*投影颜色*/
+}
+
+
+
+/* ----------------------------------------字体初始化配置----------------------------------------- */
+/* 普通字体 */
+@font-face {
+    font-family: '975 朦胧黑体';
+    font-style: normal;
+    font-weight: normal;
+    src: local('975 朦胧黑体'), local('975 朦胧黑体'), url('./thompsgo/975HazyGothicSC-Regular.ttf') format('ttf');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD, U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* 斜体 */
+@font-face {
+    font-family: '975 朦胧黑体';
+    font-style: italic;
+    font-weight: normal;
+    src: local('975 朦胧黑体'), local('975 朦胧黑体'), url('./thompsgo/975HazyGothicSC-Medium.ttf') format('ttf');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD, U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* 粗体 */
+@font-face {
+    font-family: '975 朦胧黑体';
+    font-style: normal;
+    font-weight: bold;
+    src: local('975 朦胧黑体'), local('975 朦胧黑体'), url('./themes/thompsgo/975HazyGothicSC-Bold.ttf') format('ttf');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD, U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* 斜粗体*/
+@font-face {
+    font-family: '975 朦胧黑体';
+    font-style: italic;
+    font-weight: bold;
+    src: local('975 朦胧黑体'), local('975 朦胧黑体'), url('./themes/thompsgo/975HazyGothicSC-Bold.ttf') format('ttf');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD, U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* 代码块字体 */
+@font-face {
+    font-family: 'Hack';
+    font-style: normal;
+    font-weight: bold;
+    src: local('Hack'), local('Hack'), url('./thompsgo/Hack-Regular.ttf') format('otf');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD, U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* 源代码字体 */
+@font-face {
+    font-family: 'Chill G Sans';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Chill G Sans'), local('Chill G Sans'), url('./thompsgo/Chill-G-Sans.otf') format('otf');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD, U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* 其它字体 */
+@font-face {
+    font-family: 'Alibaba Sans';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Alibaba Sans'), local('Alibaba Sans'), url('./thompsgo/AlibabaSans-Medium.otf') format('otf');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD, U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* ------------------------------------------------------------------------字体配置结束--------------------------------------------------------------------------- */
+
+
+/* 设置文本输入区域的背景 */
+content {
+    background-image: var(--bgimg-url);
+    /* 图片尺寸：第一个值指定图片的宽度，第二个值指定图片的高度 */
+    background-size: 50% auto;
+    /* 设置图片是否重复*/
+    background-repeat: repeat;
+}
+
+
+/* -------------------------------------------------------------------区域及布局配置-------------------------------------------------------------------- */
+
+/* 内容输入区域的设置 */
+#write {
+    /* 最大宽度 */
+    max-width: 96%;
+    /*auto or 100% or 1000px*/
+    /* 外边距 */
+    margin: 0 auto;
+    /* 内边距 */
+    padding: 66px 36px;
+    /* 内边距区域中下方的高度 */
+    /* padding-bottom: 36px; */
+    /* 左边增加120像素 */
+
+}
+
+/** 透明页面 **/
+#write,
+#typora-source {
+    /* 位置：相对定位 */
+    position: relative;
+    /* 外边距 */
+    /* margin: auto 1rem; */
+    margin: auto 10px auto 15px;
+    /* 设置宽度 */
+    width: 100%;
+    /* 设置元素的最小高度。这样能够防止 height 属性的应用值小于 min-height 的值 */
+    min-height: 100vh;
+
+    /* 背景颜色    一个bug：即便设置了颜色也不会显示 */
+    background-color: var(--page-color);
+
+    /* 控制元素所有四条边的内边距区域 */
+    /* padding: 1cm 0; */
+
+    /* 定义应该如何计算一个元素的总宽度和总高度 */
+    /*box-sizing: border-box;/* 要设置的边框和内边距的值是包含在 width 内的 */
+
+    /* 当内容溢出块级元素的上下两侧时所显示的内容。可以不显示，或者显示滚动条或溢出内容。 */
+    overflow-y: hide;
+
+    /* 用于在元素的框架上添加阴影效果 */
+    /* box-shadow: inset 0cm -0cm 0.1cm 0.05cm rgba(0, 0, 0, 0.1); */
+
+    /* 设置元素的子元素是位于 3D 空间中还是平面中 */
+    transform-style: preserve-3d;
+}
+
+/* -------------------------------------------------------------------区域及布局配置结束-------------------------------------------------------------------- */
+
+
+/* ------------------------------------------源代码模式配置------------------------------------------ */
+/* 源代码模式的宽度 */
+#typora-source .CodeMirror-lines {
+    width: 100%;
+    max-width: 95%;
+    /*auto or 100% or 1000px*/
+}
+
+/* 源代码字体 */
+#typora-source {
+    font-family: "Chill G Sans";
+    font-size: inherit;
+}
+
+/* typora源代码模式 */
+#typora-source {
+    width: 100%;
+    /* 设置内部左边边距 */
+    padding-left: 4px;
+    padding-right: 60px;
+    /* 字体族 */
+    font-family: "Chill G Sans";
+}
+
+/* ----------------------------------------------------------源代码配置结束----------------------------------------------------------- */
+
+
+/* -----------------------------------------------------------html（全局）内字体--------------------------------------------------------------- */
+/* 由于html标签在最外层，所以有修改全局的效果*/
+/* 不建议修改 */
+html {
+    /* 字体大小 */
+    font-size: 16px;
+    /*  Webkit 实现了名为 -webkit-font-smoothing 的相似属性。该属性仅适用于 macOS */
+    -webkit-font-smoothing: antialiased;
+    /* 像素级 */
+
+}
+
+
+/* ------------------------------------------------------侧边栏配置------------------------------------------------------ */
+/* 设置大纲区域样式（背景、字体） */
+body {
+    /* 编辑区以外的样式 */
+    /* background-color: #8F9D9A;  */
+    /* 更改输入的字体  系统字体可以直接输入， */
+    font-family: '975 朦胧黑体', Courier, sans-serif;
+    /* sans-serif是无衬线字体，是一种通用字体族。大多数计算机都有这种字体，如果特定的字体不存在将会调用此字体显示 */
+    /* color: rgb(51, 51, 51); */
+    line-height: 1.6;
+    background-image: var(--bgimg-url);
+    /* 背景尺寸 */
+    background-size: 50%;
+    background-repeat: repeat;
+    /* 所有代码块、内联代码和源代码模式的字体 */
+    --monospace: 'Hack'
+    /* #md-fences {
+        code block only 
+      } */
+}
+
+/* ------------------------------------------------------侧边栏结束------------------------------------------------------ */
+
+
+
+/* ------------------------------------------------------------------------页面元素配置------------------------------------------------------------------------- */
+
+/* 渐变水平线 */
+hr {
+    /* 宽度 */
+    width: 100%;
+    /* 外边距 */
+    margin: 0 auto;
+    /* 水平居中，水平方向的 auto，其计算值取决于可用空间（剩余空间）*/
+
+    /* 设置单独的边界属性的简写属性 */
+    /* border: 5rem outset pink;
+    outline: 0.5rem solid khaki;
+    box-shadow: 0 0 0 2rem skyblue;
+    border-radius: 12px;
+    margin: 2rem;
+    padding: 1rem;
+    outline-offset: 0.5rem; */
+
+    /* 高度 */
+    height: 2px;
+    /* 水平线的颜色 */
+    background-color: var(--split-color);
+    /* 背景图片（作为渐变使用） */
+    /* background-image: linear-gradient(to right, rgb(164, 164, 164), rgb(220, 220, 220)); */
+}
+
+/* ------------------------------------------------------------------------页面元素配置结束------------------------------------------------------------------------- */
+
+
+
+/* -----------------------------------========================图片样式====================--------------------------------- */
+img {
+    filter: brightness(100%);
+    /* 修改所有图片明度，100%为不修改 */
+}
+
+/* 图片导入的初始设置 */
+.md-image img {
+    /* 最大宽度 */
+    max-width: 1000px;
+    height: auto;
+    width: 100%;
+    margin: 40px auto;
+}
+
+/* 圆 */
+.md-image img[alt='circle'],
+[alt='圆'] {
+    border-radius: 50%;
+    box-shadow: 0px 10px 20px 1px rgba(0, 0, 0, .3);
+    border: 3px solid #e4e4e4;
+}
+
+/* 自适应缩放 */
+.md-image img[alt='zoom'],
+[alt='缩'] {
+    zoom: 60%;
+}
+
+/* 阴影圆角 */
+.md-image img[alt='shadow'],
+[alt='阴影'] {
+    border-radius: 12px;
+    box-shadow: 0px 20px 40px 1px rgba(0, 0, 0, .3);
+    border: 1px solid #e4e4e4;
+}
+
+/* 虚线 */
+.md-image img[alt='dline'],
+[alt='虚线'] {
+    border-radius: 12px;
+    box-shadow: 0px 20px 40px 1px rgba(0, 0, 0, .3);
+    border: 1px solid #e4e4e4;
+    border: dashed;
+    border-width: 2px 4px;
+    border-radius: 40px;
+}
+
+/* 线 */
+.md-image img[alt='line'],
+[alt='线'] {
+    border-radius: 12px;
+    box-shadow: 0px 20px 40px 1px rgba(0, 0, 0, .3);
+    border: 0.2rem solid #e4e4e4;
+
+}
+
+/* 阴影圆角和自适应缩放 */
+.md-image img[alt='zoom-shadow'],
+img[alt='shadow-zoom'],
+img[alt='圆角-阴影'],
+img[alt='阴影-圆角'] {
+    zoom: 60%;
+    border-radius: 2rem;
+    border: 1px solid #e4e4e4;
+    box-shadow: 0px 20px 40px 1px rgba(0, 0, 0, .3);
+}
+
+/* 色彩反转 */
+.md-image img[alt='rev'],
+[alt='反'] {
+    border-radius: 12px;
+    box-shadow: 0px 20px 40px 1px rgba(0, 0, 0, .3);
+    border: 0.2rem solid #e4e4e4;
+    filter: hue-rotate(90deg);
+}
+
+/* 透明度 */
+.md-image img[alt='opa'],
+[alt='半透'] {
+    border-radius: 12px;
+    box-shadow: 0px 20px 40px 1px rgba(0, 0, 0, .3);
+    border: 0.2rem solid #e4e4e4;
+    filter: opacity(50%)
+}
+
+/* 毛玻璃效果 */
+.md-image img[alt='glazing'],
+[alt='gla'],
+[alt='毛玻璃'] {
+    border-radius: 12px;
+    box-shadow: 0px 20px 40px 1px rgba(0, 0, 0, .3);
+    border: 0.2rem solid #e4e4e4;
+    filter: blur(15px);
+}
+
+/* 模糊特效 */
+.md-image img[alt='blur'] {
+    filter: blur(6px);
+    -webkit-filter: blur(6px);
+    -moz-filter: blur(6px);
+    -ms-filter: blur(6px);
+    -o-filter: blur(6px);
+    transition: all 0.2s linear;
+}
+
+.md-image img[alt='blur']:hover {
+    filter: none;
+    -webkit-filter: none;
+    -moz-filter: none;
+    -ms-filter: none;
+    -o-filter: none;
+}
+
+/*图片单色特效*/
+.md-image img[alt|='gray'] {
+    filter: grayscale(100%);
+}
+
+.md-image img[alt|='gray']:hover {
+    transition: 0.5s linear;
+    filter: grayscale(0);
+}
+
+/* 图片自动编号 */
+#write {
+    counter-reset: imgNum;
+}
+
+#write p>.md-image:after {
+    counter-increment: imgNum;
+    content: "图" counter(imgNum) attr(alt) !important;
+    text-align: center;
+    width: 100%;
+    display: inline-block;
+    margin-top: 8px !important;
+    font-size: small;
+}
+
+/* ----------------------------------------------------------------图片样式结束--------------------------------------------------------------------------- */
+
+
+#write>ul:first-child,
+#write>ol:first-child {
+    margin-top: 30px;
+}
+
+
+/* ------------------------------------------------------------------超链接------------------------------------------------------------------------- */
+a {
+    color: #4183C4;
+    /* 似乎无效，也不建议这样用 */
+    /* text-decoration:none； */
+}
+
+a:link {
+    /*默认状态*/
+    color: #4183C4;
+    text-decoration: none；
+}
+
+a:visited {
+    /*浏览过的*/
+    color: rgb(125, 125, 125);
+    /* 似乎无效 */
+}
+
+a:hover {
+    /*悬浮状态*/
+    color: rgb(162, 162, 38);
+}
+
+a:active {
+    /*激活过的*/
+    color: red;
+}
+
+/* ------------------------------------------------------------------超链接结束------------------------------------------------------------------------- */
+
+
+/* -----------------------------------------------------------------------标题配置----------------------------------------------------------------------- */
+
+/* h1 {
+    text-transform: uppercase;
+  } 大写*/
+/* h4 {
+  font-variant: small-caps;
+    }小写 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+    /* 中心对其 */
+    /* text-align:center; */
+}
+
+/* ------------------------------------------------未知----------------------------------------------------------- */
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+
+
+/* ---------------------------------------------------------标题------------------------------------------------- */
+h1 {
+    font-size: 2.8em;
+    /* 行高 */
+    line-height: 1.3;
+    color: var(--font-h1);
+    border-bottom: thick double var(--border-bottom-h1);
+}
+
+h2 {
+    font-size: 2.3em;
+    line-height: 1.225;
+    color: var(--font-h2);
+    border-bottom: 4px double var(--border-bottom-h2);
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 2em;
+    line-height: 1.43;
+    color: var(--font-h3);
+    border-bottom: 3px solid var(--border-bottom-h3);
+}
+
+h4 {
+    font-size: 1.7em;
+    color: var(--font-h4);
+    border-bottom: 2px solid var(--border-bottom-h4);
+}
+
+h5 {
+    font-size: 1.4em;
+    color: var(--font-h5);
+    border-bottom: 2px dashed var(--border-bottom-h5);
+}
+
+h6 {
+    font-size: 1.1em;
+    color: var(--font-h6);
+    border-bottom: 1px dashed var(--border-bottom-h6);
+}
+
+/* -----------------------------------------------------------------------标题配置结束----------------------------------------------------------------------- */
+
+
+p,
+blockquote,
+ul,
+ol,
+dl,
+table {
+    margin: 0.8em 0;
+}
+
+/* 取消居中对齐 */
+/* 
+p .md-image:only-child{
+    width: auto;
+    text-align: inherit;
+}
+
+p > .md-image:only-child:not(.md-img-error) img {
+    display: inline-block;
+} */
+
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+
+/* --------------------------------------------------------水平线（分割线）-------------------------------------------------------------- */
+/* hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e1e1e1;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+} */
+
+/* --------------------------------------------------------水平线（分割线）结束-------------------------------------------------------------- */
+
+
+
+/* -------------------------------------------------------有/无序列表----------------------------------------------- */
+
+li p.first {
+    display: inline-block;
+}
+
+ul,
+ol {
+    padding-left: 30px;
+}
+
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+
+/*
+list-style-type: disc;  实心圆
+list-style-type: circle;  空心圆
+list-style-type: square;  矩形
+list-style-type: decimal;  数字  1
+list-style-type: decimal-leading-zero;  有零的数字  01
+list-style-type: lower-alpha;  字母
+list-style-type: lower-greek; 阿尔法
+list-style-type: lower-latin; 小写字母
+list-style-type: lower-roman; 小写罗马数字
+list-style-type: upper-alpha; 大写字母
+list-style-type: upper-latin; 大写字母
+list-style-type: upper-roman; 大写罗马数字
+list-style-type: none;  无
+list-style-type: cjk-ideographic  一、
+list-style-type: "😎" 自定义内容
+*/
+
+
+/* -------------------------------------------------------------------------有序列表------------------------------------------------------------------ */
+ol {
+    list-style-type: decimal;
+    /* list-style-type:"(" counter(imgNum) ")" !important; */
+    /* list-style-type:"(" attr(upper-alpha) ")"; */
+    /* list-style-type: decimal; */
+}
+
+ol ol {
+    list-style-type: lower-alpha;
+}
+
+ol ol ol {
+    list-style-type: lower-roman;
+}
+
+
+/* ol::after{
+    content: '\1f4a2';
+    font-family: 'entypo', sans-serif;
+} */
+/*
+ol ol::before{
+    content: '\1f4a1';
+    font-family: 'entypo', sans-serif;
+} */
+
+/* todo清单 */
+.task-list-done {
+    text-decoration: line-through;
+    color: var(--taskftext-color);
+
+}
+
+.task-list-not-done {}
+
+/** ---------------------------------------------任务列表小方框-------------------------------------------------- **/
+
+/* 
+.md-task-list-item>input {
+    margin-left: -1.3em;
+    margin-top: 0.4rem;
+    /* -webkit-appearance: none; 
+    text-decoration: line-through;
+}
+.md-task-list-item>input:before {
+    content: '';
+    display: inline-block;
+    width: 0.875rem;
+    height: 0.875rem;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 0.8rem;
+    color: white;
+    border-radius: 2px;
+    /*background-color: white;
+    border: 1px solid var(--taskborder-color);
+    margin-top: -0.4rem;
+    transition: all 0.2s linear;
+}
+.md-task-list-item>input:checked:before,
+.md-task-list-item>input[checked]:before {
+    content: '\2714';
+    font-size: 0.625rem;
+    color: white;
+    border: 1px solid var(--taskfocus-color);
+    background-color: var(--taskfocus-color);
+    line-height: .8rem;
+}
+.md-task-list-item:before{
+    content: none !important;
+}
+
+.md-task-list-item>input {
+    margin-left: -1.3em;
+    
+} */
+
+/* -------------------------------------------------------有/无序列表结束----------------------------------------------- */
+
+
+/* ------------------------------------------------------引用块------------------------------------------------------ */
+/* markdown中的“> ” */
+/* html中是blockquote标签 */
+
+blockquote {
+    width: 100%;
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+
+blockquote blockquote {
+    padding-right: 0;
+}
+
+blockquote:hover {
+    border-left: 5px solid var(--blockquoteicon-color);
+}
+
+blockquote:hover:before {
+    color: var(--blockquoteicon-color);
+}
+
+blockquote[alt="danger"] {
+    border-left-color: var(--blockquotedangericon-color);
+    background-color: var(--blockquotedangerbg-color);
+}
+
+/* blockquote[alt="danger"]::before {
+    content: '\e695';
+    font-family: "iconfont";
+    color: var(--blockquotedangericon-color);
+} */
+
+blockquote[alt="success"] {
+    border-left-color: var(--blockquotesuccessicon-color);
+    background-color: var(--blockquotesuccessbg-color);
+}
+
+/* blockquote[alt="success"]::before {
+    content: '\1FABF';
+    font-family: "iconfont";
+    color: var(--blockquotesuccessicon-color);
+} */
+
+blockquote[alt="warn"] {
+    border-left-color: var(--blockquotewarnicon-color);
+    background-color: var(--blockquotewarnbg-color);
+}
+
+/* blockquote[alt="warn"]::before {
+    content: '\e8c7';
+    font-family: "iconfont";
+    color: var(--blockquotewarnicon-color);
+} */
+
+blockquote[alt="question"] {
+    border-left-color: var(--blockquotequestionicon-color);
+    background-color: var(--blockquotequestionbg-color);
+}
+
+/* blockquote[alt="question"]::before {
+    content: '\eb81';
+    font-family: "iconfont";
+    color: var(--blockquotequestionicon-color);
+} */
+/* ------------------------------------------------------引用块结束------------------------------------------------------ */
+
+
+/* ------------------------------------------------------表格--------------------------------------------------------- */
+/* markdown中的“|---|---| ” */
+table {
+    padding: 0;
+    word-break: initial;
+}
+
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+/* -------------------------------------------------------表格结束----------------------------------------------------- */
+
+
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0, 28, 36, .3);
+    border-top: 1px solid #eef2f2;
+}
+
+
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+/* ------------------------------------------------------------行内代码--------------------------------------------------------------- */
+code {
+    color: var(--code-color);
+    background-color: var(--codebg-color);
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+
+}
+
+
+/* ----------------------------------------------------------导出----------------------------------------------------------- */
+@media print {
+    html {
+        font-size: 16px;
+    }
+
+    /* 设置表格、引用块、图片、代码块不可分割 */
+    table,
+    pre,
+    blockquote,
+    img,
+    .md-fences {
+        page-break-inside: avoid;
+    }
+
+    pre {
+        word-wrap: break-word;
+    }
+
+    /* #write{
+       
+    } */
+
+    /* 修改html标签可以改变全局的样式，html是最基础的标签 */
+    html {
+        background-image: var(--bgimg-url);
+        /* 解决导出PDF时 图片放大模糊的问题 */
+        background-size: 50%;
+        /* margin: 100px 100px m !important;
+        padding: 0px; */
+    }
+
+}
+
+
+/* -----------------------------------------------------导出设置结束------------------------------------------------------- */
+
+
+/* 图片 */
+/*.md-image>.md-meta {
+    border-radius: 3px;
+    font-family: var(--monospace);
+    padding: 2px 0 0 4px;
+    font-size: 0.9em;
+    color: inherit;
+}*/
+/* 图片靠左显示 */
+
+/*p .md-image:only-child {
+  width: auto;
+  text-align: left;
+  margin-left: 2rem;
+} */
+
+
+/* ----------------------------------------------------------代码块---------------------------------------------------------------- */
+/* 代码块背景*/
+.md-fences {
+    background-color: var(--codeblockbg-color);
+}
+
+.CodeMirror-linenumber {
+    font-size: 10px;
+}
+
+/* 代码块行号颜色 */
+.cm-s-inner .CodeMirror-linenumber {
+    width: 1px !important;
+    color: var(--codeblocknum-color) !important;
+}
+
+/* CodeMirror是一个代码高亮的插件 */
+.CodeMirror-lines {
+    padding-left: 4px;
+    font-size: 14px;
+}
+
+
+/* 行号左框线 */
+#write .CodeMirror-gutters {
+    border-right: 1px solid rgba(204, 51, 0) !important;
+}
+
+
+/* 代码块行号颜色 */
+.cm-s-inner .CodeMirror-linenumber {
+    /* width: 2ch !important; */
+    color: var(--codeblocknum-color);
+}
+
+/* 代码块光标线条宽度、颜色 */
+#write .CodeMirror-cursors .CodeMirror-cursor {
+    border-left: 2px solid var(--focus-color);
+}
+
+/* 选中行高亮 */
+.md-fences:not(.md-focus) .CodeMirror-code>*:hover {
+    background-color: var(--codeblockline-color);
+}
+
+.md-fences.md-focus .CodeMirror-code>div.CodeMirror-activeline {
+    background-color: var(--codeblockline-color);
+}
+
+/* ----------------------------------------------------------代码块结束---------------------------------------------------------------- */
+
+
+
+/* ----------------------------------------元数据引用块-------------------------------------- */
+#write pre.md-meta-block {
+    width: 100%;
+    padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+
+.mathjax-block>.code-tooltip {
+    bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before {
+    left: -1.5625rem;
+    top: .375rem;
+}
+
+#write>h4.md-focus:before {
+    left: -1.5625rem;
+    top: .285714286rem;
+}
+
+#write>h5.md-focus:before {
+    left: -1.5625rem;
+    top: .285714286rem;
+}
+
+#write>h6.md-focus:before {
+    left: -1.5625rem;
+    top: .285714286rem;
+}
+
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+
+/* html <span>标签内的代码的颜色 */
+.md-tag {
+    color: #c5c5c5;
+    /* 不透明度 */
+    opacity: 1;
+}
+
+/* 目录[top]标签 */
+.md-toc {
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+
+
+/* -------------------------------------------------------------------typora软件界面配置---------------------------------------------------------------- */
+/* 侧边栏顶部的文字和图标 */
+.sidebar-tabs {
+    border-bottom: none;
+    color: #2f2f2f;
+}
+
+/* -------------------------------------------------------------------typora软件界面配置结束---------------------------------------------------------------- */
+
+
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+
+/* --------------------------------------------------------------------专注模式------------------------------------------------------------------- */
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header,
+.context-menu,
+.megamenu-content,
+footer {
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+/* 鼠标悬浮的时候的现实情况 */
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state {
+    /* 显示或隐藏元素而不更改文档的布局 */
+    visibility: visible;
+    color: rgb(0, 0, 0);
+}
+
+/* Mac无缝模式 （未测试）*/
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+/* ? */
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient(180deg, hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0));
+}
+
+
+/* 选中行高亮 */
+.md-fences:not(.md-focus) .CodeMirror-code>*:hover {
+    background-color: var(--codeblockline-color);
+}
+
+.md-fences.md-focus .CodeMirror-code>div.CodeMirror-activeline {
+    background-color: var(--codeblockline-color);
+}
+
+
+/** 脚注（上标） **/
+#write .md-footnote {
+    background-color: var(--footnotebg-color);
+    color: var(--footnote-color);
+}
+
+/* 脚注上标链接禁止显示下划线样式 */
+#write sup.md-footnote a {
+    color: inherit !important;
+    /* 鼠标hover时禁止颜色发生变化 */
+    border-bottom: none;
+    padding: 1px;
+    background-color: inherit;
+}
+
+/** 文本高亮 **/
+#write span[md-inline="highlight"] mark {
+    background-color: var(--highlightbg-color);
+    border-radius: 2px;
+    padding: 2px 4px;
+    margin: 0 2px;
+    color: var(--highlight-color);
+    font-weight: 500;
+}
+
+
+/** 隐藏型文本 **/
+span[alt="hide"] {
+    color: transparent;
+    background: var(--hidetextcover-color);
+    border-radius: 2px;
+    -webkit-transition: all .28s ease;
+    -moz-transition: all .28s ease;
+    -o-transition: all .28s ease;
+    -ms-transition: all .28s ease;
+    transition: all .28s ease;
+    -moz-transition: all .28s ease;
+    -webkit-transition: all .28s ease;
+    -o-transition: all .28s ease;
+}
+
+span[alt="hide"]:hover {
+    color: var(--hidetext-color);
+    background: 0 0
+}
+
+
+/** 彩虹变换字体特效（来自黑石博客） **/
+@-webkit-keyframes rainbowan {
+    to {
+        background-position: -2000vw;
+    }
+}
+
+@keyframes rainbowan {
+    to {
+        background-position: -2000vw;
+    }
+}
+
+span[alt="rainbow"],
+span[alt="rainbow"] * {
+    padding-top: 3px;
+    background-image: linear-gradient(to left, orangered, orange, gold, lightgreen, cyan, dodgerblue, mediumpurple, hotpink, orangered);
+    background-size: 110vw;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-animation: rainbowan 60s linear infinite;
+    animation: rainbowan 60s linear infinite;
+}
+
+/** 强调型文本 **/
+span[alt='emp'] {
+    border-bottom: 4px dotted var(--emptext-color);
+}
+
+span[alt='underline'] {
+    border-bottom: 2px solid var(--emptext-color);
+}
+
+span[alt='wavy'] {
+    text-decoration-style: wavy;
+    text-decoration-line: underline;
+    text-decoration-color: var(--emptext-color);
+}
+
+
+/** 一款时尚的span字体，来自QinXS **/
+span[alt="modern"] {
+    display: inline;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-family: var(--body-font);
+    font-size: 1em;
+    letter-spacing: .2em;
+    color: red;
+    text-shadow: 0 8px 9px #c4b59d, 0 -2px 1px #fff;
+    font-weight: 700;
+    background: linear-gradient(to bottom, #ece4d9 0, #e9dfd1 100%);
+}
+
+/** volantis文本按钮样式 **/
+span[alt="btn"] {
+    color: var(--spanbtn-color);
+    border: 1px solid var(--spanbtn-color);
+    padding: 3px 4px 2px;
+    margin: 4px;
+    line-height: 1.1;
+    border-radius: 2px;
+}
+
+#write span[alt="btn"] a {
+    color: var(--spanbtn-color);
+    border-bottom: none;
+    background-color: inherit;
+    transition: none;
+}
+
+span[alt="btn"]:hover {
+    color: var(--focus-color);
+    border: 1px solid var(--focus-color);
+}
+
+#write span[alt="btn"]:hover a {
+    color: var(--focus-color) !important;
+    background-color: inherit !important;
+}
+
+
+/** 抖音字效 **/
+@-webkit-keyframes uk-text-shadow-glitch {
+    0% {
+        text-shadow: none
+    }
+
+    25% {
+        text-shadow: -1px -1px 0 #ff0048, 1px 1px 0 #3234ff
+    }
+
+    50% {
+        text-shadow: 1px -1px 0 #ff0048, -1px 1px 0 #3234ff
+    }
+
+    75% {
+        text-shadow: -1px 1px 0 #ff0048, 1px -1px 0 #3234ff
+    }
+
+    to {
+        text-shadow: 1px 1px 0 #ff0048, -1px -1px 0 #3234ff
+    }
+}
+
+@keyframes uk-text-shadow-glitch {
+    0% {
+        text-shadow: none
+    }
+
+    25% {
+        text-shadow: -1px -1px 0 #ff0048, 1px 1px 0 #3234ff
+    }
+
+    50% {
+        text-shadow: 1px -1px 0 #ff0048, -1px 1px 0 #3234ff
+    }
+
+    75% {
+        text-shadow: -1px 1px 0 #ff0048, 1px -1px 0 #3234ff
+    }
+
+    to {
+        text-shadow: 1px 1px 0 #ff0048, -1px -1px 0 #3234ff
+    }
+}
+
+span[alt="shake"] {
+    -webkit-animation: uk-text-shadow-glitch .95s cubic-bezier(1, -1.91, 0, 2.79) 0s infinite normal both running;
+    animation: uk-text-shadow-glitch .95s cubic-bezier(1, -1.91, 0, 2.79) 0s infinite normal both running;
+}
+
+
+/**------------------------------------------------------------- 小标签 ---------------------------------------------------------------**/
+font {
+    display: inline;
+    padding: .2em .6em;
+    font-size: 90%;
+    font-weight: 400;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    /*white-space: nowrap;*/
+    vertical-align: baseline;
+    border-radius: .1rem;
+    border-radius: 6px;
+    background-color: var(--spannote-color);
+}
+
+font[title="red"] {
+    background-color: #e91e64;
+}
+
+font[title="blue"] {
+    background-color: #02aaf4;
+}
+
+font[title="yellow"] {
+    background-color: #ffc50a;
+}
+
+font[title="green"] {
+    background-color: #8bc34a;
+}
+
+font[title="gray"] {
+    background-color: #4c4c4c;
+}
+
+
+/* 空心字等文字特效 https://www.cnblogs.com/xiaohuochai/p/7521282.html */
+span[alt="hollow"] {
+    color: white;
+    text-shadow: 1px 1px black, -1px -1px black, 1px -1px black, -1px 1px black;
+}
+
+@keyframes blink-smooth {
+    50% {
+        color: transparent;
+    }
+}
+
+span[alt="blink"] {
+    animation: .5s blink-smooth infinite alternate linear;
+}
+
+span[alt="str"] {
+    padding: 2px 4px;
+    color: var(--commonstr-color);
+    background-color: var(--commonstrbg-color);
+    border-radius: 3px;
+    font-size: 15px;
+    font-family: var(--body-font);
+}
+
+
+/* 时间轴（来自Volantis主题） */
+div[alt="timeline"] {
+    margin-top: 8px;
+    margin-left: 8px;
+}
+
+div[alt="timenode"] {
+    position: relative;
+}
+
+div[alt="timenode"]:after,
+div[alt="timenode"]:before {
+    content: "";
+    z-index: 1;
+    position: absolute;
+    background: rgba(68, 215, 182, .5);
+    width: 2px;
+    left: 7px;
+}
+
+div[alt="timenode"]:before {
+    top: 0px;
+    height: 6px;
+}
+
+div[alt="timenode"] div[alt="body"],
+div[alt="timenode"] div[alt="meta"] {
+    max-width: calc(100% - 24px);
+}
+
+div[alt="timenode"] div[alt="meta"] {
+    position: relative;
+    color: var(--para-color);
+    line-height: 32px;
+    font-size: .8rem;
+    font-weight: 700;
+    margin: 0 0 0 24px;
+}
+
+div[alt="timenode"] div[alt="meta"]:after,
+div[alt="timenode"] div[alt="meta"]:before {
+    content: "";
+    position: absolute;
+    top: 8px;
+    z-index: 2;
+    left: -24px;
+}
+
+div[alt="timenode"] div[alt="meta"]:before {
+    background: rgba(68, 215, 182, .5);
+    width: 16px;
+    height: 16px;
+    border-radius: 8px;
+}
+
+div[alt="timenode"] div[alt="meta"]:after {
+    background: #44d7b6;
+    margin-left: 2px;
+    margin-top: 2px;
+    width: 12px;
+    height: 12px;
+    border-radius: 6px;
+    -webkit-transform: scale(.5);
+    -moz-transform: scale(.5);
+    -o-transform: scale(.5);
+    -ms-transform: scale(.5);
+    transform: scale(.5);
+}
+
+div[alt="timenode"] div[alt="body"] {
+    margin: 4px 0 10px 24px;
+    padding: 10px;
+    border-radius: 12px;
+    background: var(--timebodybg-color);
+    display: inline-block;
+    font-size: .9rem;
+}
+
+div[alt="timenode"]:not(:last-child):after {
+    top: 26px;
+    height: calc(100% - 26px);
+}
+
+div[alt="timenode"]:last-child:after {
+    top: 26px;
+    height: calc(100% - 30px);
+}
+
+div[alt="timenode"]:hover div[alt="meta"] {
+    color: var(--para-color);
+}
+
+div[alt="timenode"]:hover div[alt="meta"]:before {
+    background: rgba(255, 87, 34, .5)
+}
+
+div[alt="timenode"]:hover div[alt="meta"]:after {
+    background: #ff5722;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -o-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+}
+
+
+/* 参考链接样式修改（隐藏链接部分，只显示标题） */
+.footnotes.md-def-link .md-def-split,
+.footnotes .md-def-url {
+    display: none;
+}
+
+.footnotes.md-def-link .md-def-name,
+.footnotes .md-def-title {
+    display: inline;
+}
+
+.footnotes {
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+
+
+/* KBD按键样式 */
+kbd {
+    font-family: 'Alibaba Sans';
+    /* font: var(--kbdbg-color);代码字体颜色 */
+    font-size: .8em;
+    /* background: var(--kbdbg-color);文字背景 (按键颜色)*/
+    color: var(--kbd-color);
+    /* 文字颜色 */
+    border-radius: 5px;
+    border-color: var(--kbdbg-color);
+    /* box-shadow: unset; */
+    box-shadow: 2px 2px 4px 1px var(--kbd-shadow);
+
+}
+
+/* https://www.jq22.com/webqd4214（爱是一道光，绿到你发慌） */
+span[alt="glow"] {
+    font-family: 'Audiowide';
+    text-align: center;
+    /*color:black;*/
+    -webkit-transition: all 1.5s ease;
+    transition: all 1.5s ease;
+}
+
+span[alt="glow"]:hover {
+    color: #00a67c;
+    -webkit-animation: Glow 1.5s ease infinite alternate;
+    animation: Glow 1.5s ease infinite alternate;
+}
+
+@-webkit-keyframes Glow {
+    from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #00a67c, 0 0 70px #00a67c, 0 0 80px #00a67c, 0 0 100px #00a67c, 0 0 150px #00a67c;
+    }
+
+    to {
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #00a67c, 0 0 35px #00a67c, 0 0 40px #00a67c, 0 0 50px #00a67c, 0 0 75px #00a67c;
+    }
+}
+
+@keyframes Glow {
+    from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #00a67c, 0 0 70px #00a67c, 0 0 80px #00a67c, 0 0 100px #00a67c, 0 0 150px #00a67c;
+    }
+
+    to {
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #00a67c, 0 0 35px #00a67c, 0 0 40px #00a67c, 0 0 50px #00a67c, 0 0 75px #00a67c;
+    }
+}
+
+
+/** 折叠标签 **/
+details {
+    display: block;
+    padding: 16px;
+    margin: 1em 0;
+    border-radius: 4px;
+    background: var(--bg-color);
+    font-size: 14px;
+    -webkit-transition: all .28s ease;
+    -moz-transition: all .28s ease;
+    -o-transition: all .28s ease;
+    -ms-transition: all .28s ease;
+    transition: all .28s ease;
+    -moz-transition: all .28s ease;
+    -webkit-transition: all .28s ease;
+    -o-transition: all .28s ease;
+    border: 1px solid var(--bg-color);
+}
+
+summary {
+    display: list-item;
+}
+
+details summary {
+    cursor: pointer;
+    padding: 16px;
+    margin: -16px;
+    border-radius: 4px;
+    color: var(--detailstxt-color);
+    font-size: .875rem !important;
+    font-weight: 700;
+    position: relative;
+    line-height: normal;
+}
+
+details>summary {
+    background: var(--detailsbg-color);
+}
+
+details[open] {
+    border-color: var(--detailsborder-color);
+}
+
+details[open]>summary {
+    color: #444;
+    margin-bottom: 0;
+}
+
+details[open]>summary {
+    border-bottom: 1px solid var(--detailsborder-color);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+
+/* 折叠框、视频、音频标签点击时候会出现黑色边框，极不美观，去除 */
+summary:focus {
+    outline: none !important;
+}
+
+video:focus {
+    outline: none !important;
+}
+
+audio:focus {
+    outline: none !important;
+}
+
+
+
+/** 导出html文件，修复流程图在手机端高度太大的问题 **/
+.md-diagram-panel svg {
+    /*max-width: inherit !important;*/
+    height: inherit !important;
+}
+
+
+/* ------------------------------------------------------------------媒体查询------------------------------------------------------------------------- */
+/* 必须放在后面，否则会无法加载，建议放最后 */
+/* 宽度为 1400px 或更小时 */
+@media only screen and (max-width: 1400px) {
+
+    /* 内容编辑区域（纸张） */
+    #write {
+        background-color: var(--page-color-mini);
+    }
+
+    .md-fences {
+        background-color: var(--codeblockbg-color-mini);
+    }
+}
+
+/* 代码块 
+    .md-fences {
+        background-color: var(--codeblockbg-color-mini);
+    } */
+/* ------------------------------------------------------------------媒体查询结束------------------------------------------------------------------------- */

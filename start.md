@@ -1,31 +1,11 @@
 ---
-​---
 title: Thompsgo使用方法
-author: 曹洋
-creator: 曹洋
+author: caoyang
+creator: caoyang
 subject: Usage
 keywords: [使用方法、markdown、HTML、YAML]
-info: 这是一本关于thompsgo主题的手册，内含markdown、mermiad、html等语言和的基础语法。本主题由 @曹洋 开发，开源地址：https://github.com/caoyang2002/Thompsgo.git
-​---
+info: 这是一本关于thompsgo主题的手册，内含markdown、mermiad、html等语言和的基础语法。本主题由 @caoyang2002.top 开发，开源地址：https://github.com/caoyang2002/Thompsgo.git
 ---
-
-<div style="page-break-after:always"></div>
-
-# Thompsgo主题简介
-
-<font title="blue"><span>感谢dyzj、黑石、github、krafty、purple、Volantis、stack overflow等主题和网站作者的开发和讲解，本主题在他们的基础上进行开发</span></font>
-
-<font title="blue"><span>本主题免费开源</span></font>
-
-> 源代码达`1500行`,  `50%` 的代码都是注释，没写的基本是可以搜到的，还有一些是我不确定作用功能的代码 ，想自定义的可以去看看我在源码里面写的注释和使用方法，可以直接把建议和问题反馈到我的邮箱`cy12968@162.com`，我会尽快处理。
-
-- `Thompsgo`是`Typora`软件（一个Markdown编辑器）的主题
-- `Markdown `是一种轻量级标记语言，它允许编辑者使用易读易写的纯文本格式编写文档，不需要鼠标也能完成排版，相对于Word、html等格式的文档，它更高效。[^markdown为何高效]
-- 包含一个文件和一个文件夹，文件夹内是主题的背景图和字体（开源字体）
-- 可以免费提供技术支持及其它资源。
-- 作者邮箱：`cy12968@163.com`
-
-
 
 <blockquote alt="success"><p>目录</p></blockquote>
 
@@ -33,11 +13,27 @@ info: 这是一本关于thompsgo主题的手册，内含markdown、mermiad、htm
 
 <div style="page-break-after:always"></div>
 
+# 一、Thompsgo主题简介
+
+
+<font title="blue"><span>感谢dyzj、黑石、github、krafty、purple、Volantis、stack overflow等主题和网站作者的开发和讲解，本主题在他们的基础上进行开发</span></font>
+
+<font title="blue"><span>本主题免费开源</span></font>
+
+> 源代码达`1500行`,  `50%` 的代码都是注释，没写的基本是可以搜到的，还有一些是我不确定作用功能的代码 ，想自定义的可以去看看我在源码里面写的注释和使用方法，可以直接把建议和问题反馈到我的邮箱`cy12968@163.com`，我会尽快处理。
+
+- `Thompsgo`是`Typora`软件（一个Markdown编辑器）的主题
+- `Markdown `是一种轻量级标记语言，它允许编辑者使用易读易写的纯文本格式编写文档，不需要鼠标也能完成排版，相对于Word、html等格式的文档，它更高效。[^markdown为何高效]
+- 包含一个文件和一个文件夹，文件夹内是主题的背景图和字体（开源字体）
+
+
+<div style="page-break-after:always"></div>
+
 <blockquote alt="success"><p>开始阅读</p></blockquote>
 
-# 解决方案
+# 二、解决方案
 
-## 我的期望
+## 1. 我的期望
 
 1. 让文字编辑页面有比较暖的色彩，增加一些质感
 2. 文字不要太硬
@@ -45,7 +41,7 @@ info: 这是一本关于thompsgo主题的手册，内含markdown、mermiad、htm
 
 
 
-## 我的解决方案
+## 2. 我的解决方案
 
 1. 页面使用的是纸张的纹理作为全局背景，并把内容编辑区域改为透明
 2. 基本字体使用的是可免费商用的`975 朦胧黑体`[^字体介绍][^字体授权说明]
@@ -53,7 +49,7 @@ info: 这是一本关于thompsgo主题的手册，内含markdown、mermiad、htm
 
 
 
-##  目前的问题
+## 3. 目前的问题
 
 1. 换行时会出现行间距太宽，通过查看源代码可以发现换了两个行
 1. 纸张不会随着文字的滚动而滚动
@@ -63,7 +59,7 @@ info: 这是一本关于thompsgo主题的手册，内含markdown、mermiad、htm
 
 
 
-# 基本编辑
+# 三、基本编辑
 
 > `Markdown`以下称作`md`
 >
@@ -73,9 +69,11 @@ info: 这是一本关于thompsgo主题的手册，内含markdown、mermiad、htm
 >
 > 部分`markdown`不支持的样式比如<u>带下划线文字</u>或者 <span style="color:red">带颜色的文字</span>可以通过`html`实现
 
-## 基础语法
 
-### md语法
+
+## 1. 基础语法
+
+### 1.1 md语法
 
 [markdown语法-菜鸟教程](https://www.runoob.com/markdown/md-tutorial.html)
 
@@ -1716,6 +1714,11 @@ pie title 字符统计
     <span style="display:none">I am hidden after export</span>
 
   
+
+
+
+
+
 
 
 ##### 蓝色小标签

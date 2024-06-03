@@ -32,3 +32,8 @@
 ├── thompsgo_mac_cn.css
 └── thompsgo_win.css
 ```
+
+[开始使用](start.md)
+
+
+
